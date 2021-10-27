@@ -1,6 +1,17 @@
 # parking_slot_booking
 
-A new Flutter project.
+The mobile application that we are going to present will facilitate the civilians to book their parking
+slots in a particular building like malls, complexes, etc in prior. This helps to avoid confusion among
+the people regarding the availability of the parking slots.  Reservation of slots is achieved with an
+advanced congestion control algorithm to provide fair chances of booking to every individual. Since vehicles
+get parking slots in prior it reduces the time of waiting on the road which in turn free up the fast lanes.
+By providing the availability of the parking slots the number of vehicles parked in public places will
+reduce and eventually reduce traffic jams and chaos.
+
+This is a submission for Smart City Hackathon 2021
+
+
+
 
 ## Getting Started
 
