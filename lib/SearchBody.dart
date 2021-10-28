@@ -29,7 +29,10 @@ class _SearchBodyState extends State<SearchBody> {
                     child: Column(
                       children: [
                         IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => Choice()));
+                          },
                           icon: Icon(Icons.hotel),
 
                         ),
@@ -58,7 +61,10 @@ class _SearchBodyState extends State<SearchBody> {
                     child: Column(
                       children: [
                         IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => Choice()));
+                          },
                           icon: Icon(Icons.shopping_bag),
 
                         ),

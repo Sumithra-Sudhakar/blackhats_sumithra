@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/parked_in.dart';
+
+import 'cancel.dart';
 
 class QrGenerated extends StatefulWidget {
   const QrGenerated({Key? key}) : super(key: key);
@@ -35,10 +38,19 @@ class _QrGeneratedState extends State<QrGenerated> {
 
             Padding(padding:  EdgeInsets.all( 20.0),
               child: Text("Estmated Depature  Time: "+EDT,style: GoogleFonts.alice(color: Colors.black, fontSize: 20)),),
-
             Padding(
               padding: EdgeInsets.all( 40.0),
-              child: ElevatedButton.icon(onPressed:  (){}, icon: Icon(Icons.edit), label: Text("Change arrival and depature time", style: GoogleFonts.actor(),)),
+              child: ElevatedButton.icon(onPressed:  (){
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) =>  ParkedIn()));
+              }, icon: Icon(Icons.local_parking_outlined), label: Text("Park In!", style: GoogleFonts.actor(),)),
+            ),
+            Padding(
+              padding: EdgeInsets.all( 40.0),
+              child: ElevatedButton.icon(onPressed:  (){
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) =>  Cancel()));
+              }, icon: Icon(Icons.cancel), label: Text("Cancel Booking", style: GoogleFonts.actor(),)),
             )
           ],
         ),
