@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/search_page.dart';
 
 class Cancel extends StatefulWidget {
   const Cancel({Key? key}) : super(key: key);
@@ -31,7 +32,8 @@ class _CancelState extends State<Cancel> {
           Padding
             (padding: EdgeInsets.all(24.0),
               child: ElevatedButton.icon(onPressed:  (){
-
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) =>  Search()));
               }, icon: Icon(Icons.ten_k), label: Text("SUBMIT")))
         ],
       ),

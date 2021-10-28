@@ -169,7 +169,7 @@ class _SignUpState extends State<SignUp> {
                     label: Text('Sign Up'),
                     onPressed: () {
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                          MaterialPageRoute(builder: (context) => Login()));
                     },
                     icon: Icon(Icons.assignment_turned_in),
                   ),

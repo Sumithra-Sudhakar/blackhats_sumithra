@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parking_slot_booking/choosing_loc.dart';
+import 'package:parking_slot_booking/user_profile.dart';
 
 import 'SearchBody.dart';
 
@@ -58,7 +59,13 @@ class _SearchState extends State<Search> {
           }, icon:customIcon),
         ],
         centerTitle: true,
+leading: IconButton(icon: Icon(Icons.line_weight_sharp),
+onPressed: (){
+  Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => User()));
+},),
       ),
+
       body:SearchBody(),
     );
   }
