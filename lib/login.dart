@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/search_page.dart';
+import 'package:parking_slot_booking/sign_up.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -104,7 +106,8 @@ class _LoginState extends State<Login> {
                             ),
                             label: Text('Log In'),
                             onPressed: () {
-
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(builder: (context) =>  Search()));
                             },
                             icon: Icon(Icons.assignment_turned_in),
                           ),
@@ -162,7 +165,8 @@ class _LoginState extends State<Login> {
                                     ),
                                   ),
                                   onPressed: () {
-
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => SignUp()));
                                     //signup screen
                                   },
                                 )

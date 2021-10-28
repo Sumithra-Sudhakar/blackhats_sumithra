@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/choosing_loc.dart';
+
+import 'SearchBody.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -61,62 +64,4 @@ class _SearchState extends State<Search> {
   }
 }
 
-Container SearchBody(){
-  return Container(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Center(
 
-          child: Padding(
-            padding: EdgeInsets.all( 50.0),
-            child: Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all( 30.0),
-                  child: Column(
-                    children: [
-                      IconButton(
-                        onPressed: (){},
-                        icon: Icon(Icons.hotel),
-
-                      ),
-                      Text("HOTELS", style: GoogleFonts.alice())
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all( 30.0),
-                  child: Column(
-                    children: [
-                      IconButton(
-                        onPressed: (){},
-                        icon: Icon(Icons.emoji_food_beverage_outlined),
-
-                      ),
-                      Text("RESTAURANTS", style: GoogleFonts.alice())
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all( 30.0),
-                  child: Column(
-                    children: [
-                      IconButton(
-                        onPressed: (){},
-                        icon: Icon(Icons.shopping_bag),
-
-                      ),
-                      Text("SHOPPING", style: GoogleFonts.alice())
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}

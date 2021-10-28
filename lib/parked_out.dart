@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/search_page.dart';
 
 
  class ParkedOut extends StatelessWidget {
@@ -22,7 +23,10 @@ import 'package:google_fonts/google_fonts.dart';
      child: Text("Drive Safe! Have a nice day!",style: GoogleFonts.alfaSlabOne(fontSize: 40),)),
 
 
-     ElevatedButton.icon(onPressed:  (){}, icon: Icon(Icons.airport_shuttle_sharp), label: Text("Book another parking"))
+     ElevatedButton.icon(onPressed:  (){
+       Navigator.of(context).push(
+           MaterialPageRoute(builder: (context) =>  Search()));
+     }, icon: Icon(Icons.airport_shuttle_sharp), label: Text("Book another parking"))
      ],
 
      ),

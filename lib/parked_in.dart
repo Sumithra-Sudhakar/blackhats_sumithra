@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/parked_out.dart';
 
 
 class ParkedIn extends StatefulWidget {
@@ -26,7 +27,10 @@ class _ParkedInState extends State<ParkedIn> {
           child: Text("You are in!",style: GoogleFonts.alfaSlabOne(fontSize: 45),)),
 
 
-ElevatedButton.icon(onPressed:  (){}, icon: Icon(Icons.airport_shuttle_sharp), label: Text("Exit Parking slot"))
+ElevatedButton.icon(onPressed:  (){
+  Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) =>  ParkedOut()));
+}, icon: Icon(Icons.airport_shuttle_sharp), label: Text("Exit Parking slot"))
    ],
 
    ),
