@@ -56,6 +56,67 @@ class _SearchState extends State<Search> {
         ],
         centerTitle: true,
       ),
+      body:SearchBody(),
     );
   }
+}
+
+Container SearchBody(){
+  return Container(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Center(
+
+          child: Padding(
+            padding: EdgeInsets.all( 50.0),
+            child: Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all( 30.0),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Icons.hotel),
+
+                      ),
+                      Text("HOTELS", style: GoogleFonts.alice())
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all( 30.0),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Icons.emoji_food_beverage_outlined),
+
+                      ),
+                      Text("RESTAURANTS", style: GoogleFonts.alice())
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all( 30.0),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Icons.shopping_bag),
+
+                      ),
+                      Text("SHOPPING", style: GoogleFonts.alice())
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }

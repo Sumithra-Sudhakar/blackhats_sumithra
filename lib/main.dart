@@ -10,7 +10,7 @@ void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: SafeArea(
-      child: SignUp(),
+      child: Search(),
     ),
   ));
 }
