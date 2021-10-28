@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import 'auth_service.dart';
 import 'login.dart';
 
 class SignUp extends StatefulWidget {
@@ -13,10 +15,13 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    final authService = Provider.of<AuthService>(context);
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -40,7 +45,6 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-
                       decoration: const InputDecoration(
                         labelText: 'Username',
                         border: OutlineInputBorder(
@@ -65,17 +69,16 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-
+                      controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         labelText: 'E-Mail',
                         border: OutlineInputBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
+                                BorderRadius.all(Radius.circular(20))),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
-                          borderSide: const BorderSide(
-                               width: 2.0),
+                          borderSide: const BorderSide(width: 2.0),
                         ),
                         hintText: 'E-mail?',
                       ),
@@ -89,18 +92,17 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-
+                      controller: passwordController,
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
                       decoration: const InputDecoration(
                         labelText: 'Password',
                         border: OutlineInputBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
+                                BorderRadius.all(Radius.circular(20))),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
-                          borderSide: const BorderSide(
-                              width: 2.0),
+                          borderSide: const BorderSide(width: 2.0),
                         ),
                         hintText: 'Secret, super safe password here.',
                       ),
@@ -114,15 +116,14 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-                         decoration: const InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Location',
                         border: OutlineInputBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
+                                BorderRadius.all(Radius.circular(20))),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
-                          borderSide: const BorderSide(
-                               width: 2.0),
+                          borderSide: const BorderSide(width: 2.0),
                         ),
                         hintText: 'Where do you live?',
                       ),
@@ -136,17 +137,15 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: 'Phone',
                         border: OutlineInputBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
+                                BorderRadius.all(Radius.circular(20))),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
-                          borderSide: const BorderSide(
-                                width: 2.0),
+                          borderSide: const BorderSide(width: 2.0),
                         ),
                         hintText: 'Phone number :)',
                       ),
@@ -161,15 +160,16 @@ class _SignUpState extends State<SignUp> {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0)),
-
                       padding: EdgeInsets.all(15),
                       onPrimary: Color(0xffF3EAC2),
                       elevation: 5,
                     ),
                     label: Text('Sign Up'),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                    onPressed: () async {
+                      await authService.createUserWithEmailAndPassword(
+                          emailController.text, passwordController.text);
+
+                      Navigator.pop(context);
                     },
                     icon: Icon(Icons.assignment_turned_in),
                   ),
@@ -198,7 +198,6 @@ class _SignUpState extends State<SignUp> {
                               fontStyle: FontStyle.normal,
                               fontSize: 20,
                               fontWeight: FontWeight.w400,
-
                             ),
                           ),
                         ),
@@ -211,7 +210,6 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),

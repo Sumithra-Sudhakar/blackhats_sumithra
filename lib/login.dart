@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parking_slot_booking/search_page.dart';
 import 'package:parking_slot_booking/sign_up.dart';
+import 'package:provider/provider.dart';
+
+import 'auth_service.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,10 +16,14 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    final authService = Provider.of<AuthService>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: <Widget>[
@@ -47,8 +54,7 @@ class _LoginState extends State<Login> {
                         Container(
                           padding: EdgeInsets.all(10),
                           child: TextField(
-
-
+                            controller: emailController,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -57,11 +63,10 @@ class _LoginState extends State<Login> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(20)),
-                                borderSide: const BorderSide(
-                                    width: 2.0),
+                                    BorderRadius.all(Radius.circular(20)),
+                                borderSide: const BorderSide(width: 2.0),
                               ),
-                              labelText: 'Username',
+                              labelText: 'E-mail',
                             ),
                           ),
                         ),
@@ -71,21 +76,18 @@ class _LoginState extends State<Login> {
                         Container(
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                           child: TextField(
-
+                            controller: passwordController,
                             obscureText: true,
-
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(20)),
-                                borderSide: const BorderSide(
-                                     width: 2.0),
+                                    BorderRadius.all(Radius.circular(20)),
+                                borderSide: const BorderSide(width: 2.0),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(20)),
-                                borderSide: const BorderSide(
-                                  width: 2.0),
+                                    BorderRadius.all(Radius.circular(20)),
+                                borderSide: const BorderSide(width: 2.0),
                               ),
                               labelText: 'Password',
                             ),
@@ -99,15 +101,14 @@ class _LoginState extends State<Login> {
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0)),
-
                               padding: EdgeInsets.all(15),
-
                               elevation: 5,
                             ),
                             label: Text('Log In'),
                             onPressed: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) =>  Search()));
+                              authService.signInWithEmailAndPassword(
+                                  emailController.text,
+                                  passwordController.text);
                             },
                             icon: Icon(Icons.assignment_turned_in),
                           ),
@@ -135,44 +136,43 @@ class _LoginState extends State<Login> {
                         ),
                         Container(
                             child: Row(
-                              children: <Widget>[
-                                Text(
-                                  'Do not have an account?',
-                                  style: GoogleFonts.gentiumBasic(
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff6C4A4A),
-                                  ),
-                                ),
-                                FlatButton(
-                                  textColor: Colors.blue,
-                                  child: Container(
-                                    child: Row(
-                                      children: [
-                                        Text('Sign Up',
-                                            style: GoogleFonts.gentiumBasic(
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w400,
-
-                                            )),
-                                        Container(
-                                          width: 10,
-                                        ),
-                                        Icon(Icons.arrow_drop_down_circle_outlined)
-                                      ],
+                          children: <Widget>[
+                            Text(
+                              'Do not have an account?',
+                              style: GoogleFonts.gentiumBasic(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff6C4A4A),
+                              ),
+                            ),
+                            FlatButton(
+                              textColor: Colors.blue,
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Text('Sign Up',
+                                        style: GoogleFonts.gentiumBasic(
+                                          fontStyle: FontStyle.normal,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400,
+                                        )),
+                                    Container(
+                                      width: 10,
                                     ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => SignUp()));
-                                    //signup screen
-                                  },
-                                )
-                              ],
-                              mainAxisAlignment: MainAxisAlignment.center,
-                            ))
+                                    Icon(Icons.arrow_drop_down_circle_outlined)
+                                  ],
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SignUp()));
+                                //signup screen
+                              },
+                            )
+                          ],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        ))
                       ],
                     )),
               ),
