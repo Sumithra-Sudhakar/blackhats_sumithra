@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import 'auth_service.dart';
 import 'login.dart';
 
 class makeProfileAvatar extends StatefulWidget {
@@ -13,6 +15,7 @@ class makeProfileAvatar extends StatefulWidget {
 class _makeProfileAvatarState extends State<makeProfileAvatar> {
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
     return Container(
       child:  Column(
         children: [
@@ -55,12 +58,8 @@ class _makeProfileAvatarState extends State<makeProfileAvatar> {
                 elevation: 5,
               ),
               label: Text('Log Out'),
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Login()));
-
-
-
+              onPressed: ()  async {
+                await authService.signOut();
               },
               icon: Icon(Icons.logout),
             ),
