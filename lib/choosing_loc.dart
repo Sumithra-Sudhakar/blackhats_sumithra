@@ -3,7 +3,7 @@ import 'package:parking_slot_booking/parked_in.dart';
 import 'package:parking_slot_booking/qr_screen.dart';
 import 'package:parking_slot_booking/search_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:parking_slot_booking/slot.dart';
+import 'package:parking_slot_booking/list_parks.dart';
 
 class Choice extends StatefulWidget {
   const Choice({Key? key}) : super(key: key);
@@ -72,7 +72,7 @@ class _ChoiceState extends State<Choice> {
                  (padding: EdgeInsets.all(24.0),
                    child: ElevatedButton.icon(onPressed:  (){
                      Navigator.of(context).push(
-                         MaterialPageRoute(builder: (context) =>  Slot()));
+                         MaterialPageRoute(builder: (context) =>  List()));
                    }, icon: Icon(Icons.done_all), label: Text("DONE")))
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parking_slot_booking/qr_screen.dart';
+import 'dart:math';
 
 class Slot extends StatefulWidget {
   const Slot({Key? key}) : super(key: key);
@@ -10,9 +11,11 @@ class Slot extends StatefulWidget {
 }
 
 class _SlotState extends State<Slot> {
-  final slot = "10";
+
   @override
   Widget build(BuildContext context) {
+
+    final slot = Random().nextInt(100);
     return  Scaffold(
       appBar: AppBar(
         title: Text("Slot Allocated",style: GoogleFonts.alfaSlabOne(),),
@@ -27,7 +30,7 @@ class _SlotState extends State<Slot> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text(slot, style: GoogleFonts.alfaSlabOne(fontSize: 30),),
+                child: Text('$slot', style: GoogleFonts.alfaSlabOne(fontSize: 80),),
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
