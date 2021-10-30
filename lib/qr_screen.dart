@@ -35,7 +35,7 @@ class _QrGeneratedState extends State<QrGenerated> {
               QrImage(
                 data: randomAlphaNumeric (10),
                 version: QrVersions.auto,
-                size: 200.0,
+                size: 400.0,
               ),
 
               Padding(padding:  EdgeInsets.all( 20.0),
