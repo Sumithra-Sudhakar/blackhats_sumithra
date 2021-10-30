@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parking_slot_booking/search_page.dart';
 import 'package:parking_slot_booking/sign_up.dart';
+import 'package:provider/provider.dart';
+
+import 'auth_service.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,6 +16,12 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    final authService = Provider.of<AuthService>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -47,6 +56,7 @@ class _LoginState extends State<Login> {
                         Container(
                           padding: EdgeInsets.all(10),
                           child: TextField(
+                            controller: emailController,
 
 
                             decoration: InputDecoration(
@@ -61,7 +71,7 @@ class _LoginState extends State<Login> {
                                 borderSide: const BorderSide(
                                     width: 2.0),
                               ),
-                              labelText: 'Username',
+                              labelText: 'E-mail',
                             ),
                           ),
                         ),
@@ -71,7 +81,7 @@ class _LoginState extends State<Login> {
                         Container(
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                           child: TextField(
-
+                            controller: passwordController,
                             obscureText: true,
 
                             decoration: InputDecoration(
@@ -106,8 +116,9 @@ class _LoginState extends State<Login> {
                             ),
                             label: Text('Log In'),
                             onPressed: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) =>  Search()));
+                              authService.signInWithEmailAndPassword(
+                                  emailController.text,
+                                  passwordController.text);
                             },
                             icon: Icon(Icons.assignment_turned_in),
                           ),

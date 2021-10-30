@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import 'auth_service.dart';
 import 'login.dart';
 
 class SignUp extends StatefulWidget {
@@ -13,6 +15,12 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
+
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    final authService = Provider.of<AuthService>(context);
+
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -65,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
-
+                      controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         labelText: 'E-Mail',
@@ -89,6 +97,7 @@ class _SignUpState extends State<SignUp> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
+                      controller: passwordController,
 
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
@@ -167,9 +176,11 @@ class _SignUpState extends State<SignUp> {
                       elevation: 5,
                     ),
                     label: Text('Sign Up'),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Login()));
+                    onPressed: () async {
+                      await authService.createUserWithEmailAndPassword(
+                          emailController.text, passwordController.text);
+
+                      Navigator.pop(context);
                     },
                     icon: Icon(Icons.assignment_turned_in),
                   ),
