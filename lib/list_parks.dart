@@ -14,6 +14,8 @@ class List extends StatefulWidget {
 class _ListState extends State<List> {
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
 
@@ -41,18 +43,18 @@ class _ListState extends State<List> {
         padding: EdgeInsets.all( 20.0),
         children: [
           ListTile(leading: Icon(Icons.car_rental),
-          contentPadding: EdgeInsets.all(10.0),
-          title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
-          subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
-          onTap: (){
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) =>  Slot()));
-          },
+            contentPadding: EdgeInsets.all(10.0),
+            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
+            onTap: (){
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) =>  Slot()));
+            },
           ),
 
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 2", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -61,7 +63,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 3", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -70,7 +72,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 4", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -79,7 +81,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 5", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -88,7 +90,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 6", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -97,7 +99,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 7", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -106,7 +108,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 8", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -115,7 +117,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 9", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -124,7 +126,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 10", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
@@ -133,7 +135,7 @@ class _ListState extends State<List> {
           ),
           ListTile(leading: Icon(Icons.car_rental),
             contentPadding: EdgeInsets.all(10.0),
-            title: Text("Area 1", style:GoogleFonts.abel(fontSize: 12)),
+            title: Text("Area 11", style:GoogleFonts.abel(fontSize: 12)),
             subtitle: Text("20 slots available",style:GoogleFonts.abel(fontSize: 8)),
             onTap: (){
               Navigator.of(context).push(
