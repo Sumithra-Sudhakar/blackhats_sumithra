@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_slot_booking/payment.dart';
 import 'package:parking_slot_booking/qr_screen.dart';
 import 'dart:math';
 
@@ -36,7 +37,7 @@ class _SlotState extends State<Slot> {
                 padding: const EdgeInsets.all(20.0),
                 child: ElevatedButton.icon(onPressed:  (){
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) =>  QrGenerated()));
+                      MaterialPageRoute(builder: (context) =>  Pay()));
                 }, icon: Icon(Icons.money), label: Text("confirm to pay")),
               )
             ],
